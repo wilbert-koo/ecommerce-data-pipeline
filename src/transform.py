@@ -68,10 +68,9 @@ def clean_purchases(input_path: Path, output_path: Path) -> None:
 
     # Add derived columns
     df["purchase_month"] = df["purchase_date"].dt.to_period("M").astype(str)
-    df["discount_amount"] = df["price_rs"] - df["final_price_rs"]
-
-    # Optional: validate discount amount is not negative
-    df = df[df["discount_amount"] >= 0]
+    df["discount_amount"] = df["price_rs"] * (df["discount_pct"] / 100)
+    df["expected_final_price_rs"] = df["price_rs"] - df["discount_amount"]
+    df["price_difference_rs"] = df["final_price_rs"] - df["expected_final_price_rs"]
 
     # Reorder columns
     final_columns = [
@@ -81,7 +80,9 @@ def clean_purchases(input_path: Path, output_path: Path) -> None:
         "price_rs",
         "discount_pct",
         "discount_amount",
+        "expected_final_price_rs",
         "final_price_rs",
+        "price_difference_rs",
         "payment_method",
         "purchase_date",
         "purchase_month",

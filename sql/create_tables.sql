@@ -7,7 +7,9 @@ CREATE TABLE raw_purchases (
     price_rs NUMERIC(10, 2),
     discount_pct NUMERIC(5, 2),
     discount_amount NUMERIC(10, 2),
+    expected_final_price_rs NUMERIC(10, 2),
     final_price_rs NUMERIC(10, 2),
+    price_difference_rs NUMERIC(10, 2),
     payment_method VARCHAR(50),
     purchase_date DATE,
     purchase_month VARCHAR(7)
