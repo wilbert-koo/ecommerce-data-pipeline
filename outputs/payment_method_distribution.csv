@@ -1,0 +1,6 @@
+payment_method,transaction_count,transaction_share_pct,total_revenue_rs,avg_transaction_value_rs
+Credit Card,333,22.90,66650.16,200.15
+UPI,323,22.21,66826.07,206.89
+Debit Card,282,19.39,58522.66,207.53
+Cash on Delivery,264,18.16,57051.36,216.10
+Net Banking,252,17.33,53408.75,211.94
